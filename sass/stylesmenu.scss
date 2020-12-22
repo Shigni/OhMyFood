@@ -38,16 +38,18 @@ h2 {
 @keyframes loader {
     from {
         opacity: 1;
+        z-index: 999;
     }
     to {
         opacity: 0;
+        z-index: 0;
     }
   }
 
 .loader {
     position: fixed;
     opacity: 0%;
-    z-index: 999;
+    z-index: 0;
     background-color:rgba(0, 0, 0, 0.2);
     height: 100%;
     width: 100%;
@@ -122,6 +124,7 @@ h2 {
 }
 
 header {
+    position: relative;
     .fas {
         position: absolute;
         padding-top: 22px;
@@ -327,11 +330,36 @@ header {
     &--3 {
         animation-delay: .6s;
     }
+
+    &--4 {
+        animation-delay: .8s;
+    }
 }
+
+
+.order__btn {
+    @include center;
+    background: linear-gradient(355deg, $purple 29%, $pink 100%);
+    transition-duration: .25s;
+    height: 50px;
+    width: 218px;
+    border-radius: 25px;
+    color: $white;
+    box-shadow: 10px 7px 26px -16px rgba(0,0,0,1);
+    margin: auto;
+    margin-top: 32px;
+    margin-bottom: 42px;
+    &:hover {
+        background: linear-gradient(355deg, lighten($purple, 3%), lighten($pink, 3%));
+        box-shadow: 10px 7px 26px -10px rgba(0,0,0,1);
+    }
+}
+
 
 /*#### FOOTER ####*/
 
 footer {
+    position: relative;
     padding-left: 7%;
     padding-top: 10px;
     padding-bottom: 36px;

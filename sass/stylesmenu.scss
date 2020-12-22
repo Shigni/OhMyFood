@@ -1,0 +1,396 @@
+/*#### GENERAl ####*/
+
+$dark-grey: #eaeaea;
+$grey: #f6f6f6;
+$purple: #9356dc;
+$pink: #ff79da;
+$green: #99e2d0;
+$white: #ffffff;
+$black: #000000;
+
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto';
+    min-width: 280px;
+    max-width: 1920px;
+    margin: auto;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2 {
+    margin-left: 5%;
+}
+/*#### LOADER ####*/
+
+@keyframes loader {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+  }
+
+.loader {
+    position: fixed;
+    opacity: 0%;
+    z-index: 999;
+    background-color:rgba(0, 0, 0, 0.2);
+    height: 100%;
+    width: 100%;
+    animation: loader 1s;
+  }
+  
+  .lds-ellipsis {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    
+  }
+  .lds-ellipsis div {
+    z-index: 1;
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: $white;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+
+/*#### HEADER ####*/
+
+.logo {
+    @include center;
+    padding-top: 20px;
+    padding-bottom: 12px;
+}
+
+header {
+    .fas {
+        position: absolute;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        margin-left: 4%;
+        font-size: 25px;
+    }
+    a {
+        color: $black;
+    }
+}
+
+/*#### IMAGE ####*/
+
+.bg__img {
+        max-width: 100%;
+        max-height: 512px;
+        width: 100%;
+        object-fit: cover;
+}
+
+/*#### CARDS ####*/
+
+@keyframes itemAppear {
+    0% {
+        opacity: 0;
+        margin-top: 8px;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0px;
+    }
+  }
+
+.menu {
+    position: relative;
+    background-color: $grey;
+    margin-top: -64px;
+    z-index: 1;
+    border-radius: 32px 32px 0px 0px;
+    padding: 16px;
+    &__btn {
+        height: 2rem;
+        width: 2rem;
+        background-color: transparent;
+        border: 0 solid transparent;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        margin-right: 5%;
+        background-color: #000;
+    }
+
+    &__btn:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__like {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        transition-duration: .25s;
+        background-color: $grey;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        mix-blend-mode: lighten;
+    }
+
+    &__btn:before {
+        opacity: 0;
+        transition: .5s;
+        content: "";
+        background: linear-gradient(0deg,$purple,$pink);
+    }
+
+    &__btn:hover {
+        .menu__like {
+          &--noBg {
+            opacity: 0;
+          }
+        }
+    }
+
+    &__btn:hover::before {
+        opacity: 1;
+    }
+
+    h2 {
+        font-family: 'Shrikhand';
+        margin-left: 0px;
+    }
+}
+
+.choice {
+    &__all {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__desc {
+        flex: 1;
+        min-width: 0;
+        padding: 12px 0 12px 12px;
+    }
+    &__dish {
+        display: flex;
+        height: 68px;
+        width: 100%;
+        background-color: white;
+        border-radius: 15px;
+        margin-bottom: 14px;
+        overflow: hidden;
+
+        animation: itemAppear 1s;
+        animation-timing-function: ease;
+        animation-fill-mode: both;
+        h4 {
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        p {
+            margin-top: 8px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }    
+        .fas {
+            transition: transform 250ms ease-in-out;
+        }
+    }
+}
+
+.title {
+    position: relative;
+    padding-bottom: 8px;
+    font-weight: lighter;
+}
+
+.title::after {
+    content: "";
+    width: 40px;
+    height: 3px;
+    background-color: $green;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.price {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 12px;
+    font-weight: bold;
+}
+
+.check {
+    background-color: $green;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-right: -60px;
+    font-size: larger;
+    color: $white;
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.choice__dish:hover{
+    .check {
+        margin: 0px;
+    }
+    .fas {
+        transform: rotate(360deg);
+    }
+}
+
+.delay {
+    &--1 {
+        animation-delay: .2s;
+    }
+
+    &--2 {
+        animation-delay: .4s;
+    }
+
+    &--3 {
+        animation-delay: .6s;
+    }
+}
+
+/*#### FOOTER ####*/
+
+footer {
+    padding-left: 7%;
+    padding-top: 10px;
+    padding-bottom: 36px;
+    background: #353535;
+    color: $white;
+    a {
+        color: $white;
+    }
+
+    p {
+        font-family: 'Shrikhand';
+    }
+
+    li {
+        list-style: none;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .fas {
+        margin-right: 10px;
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/*#### MEDIA ####*/
+
+@media (min-width: 1024px) {
+
+    .menu {
+        margin: auto;
+        width: 80%;
+        margin-top: -64px;
+        &__list {
+            flex-direction: row;
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+
+    .choice {
+        width: 30%;
+    }
+}
+
+footer {
+    padding-left: 10%;
+}
+
+@media (min-width: 550px) {
+    .menu {
+        width: 80%;
+        margin: auto;
+        margin-top: -64px;
+    }
+}
+

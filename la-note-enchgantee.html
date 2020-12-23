@@ -23,6 +23,31 @@
             <div></div>
         </div>
     </div>
+
+    <!-- POP-UP -->
+    <div class="overlay" id="popup">
+        <div class="popupcontent">
+            <h2 class="title">Contact</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <p>Vous avez des suggestions ? Des questions ? Ou vous souhaitez nous rejoindre ?
+                    Alors envoyez nous un e-mail à l'adresse suivante: <span
+                        class="emailbold"><a href="mailto:">contact@ohmyfood.fr</a></span>.
+                    <br />Ou utiliser simplement la messagerie intégrée !
+                </p>
+                <form>
+                    <div class="type">
+                        <input type="email" id="email" name="email" placeholder="example@abc.fr">
+                    </div>
+                    <div class="type">
+                        <textarea id="myTextArea" rows="5" placeholder="Écrivez-nous !"></textarea>
+                    </div>
+                    <button class="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- HEADER -->
     <header>
         <a href="./index.html"><i class="fas fa-arrow-left"></i></a>
@@ -154,7 +179,7 @@
             <li><a href="#"><i class="fas fa-utensils"></i>Proposer un restaurant</a></li>
             <li><a href="#"><i class="fas fa-hands-helping"></i>Devenir partenaire</a></li>
             <li><a href="#">Mentions légales</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#popup">Contact</a></li>
         </ul>
     </footer>
 

@@ -7,7 +7,8 @@ body {
   min-width: 280px;
   max-width: 1920px;
   margin: auto;
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  position: relative; }
 
 a {
   text-decoration: none; }
@@ -37,6 +38,8 @@ h2 {
   position: absolute;
   top: 50%;
   left: 50%;
+  margin-left: -40px;
+  margin-top: -20px;
   width: 80px;
   height: 80px; }
 
@@ -80,6 +83,103 @@ h2 {
     transform: translate(0, 0); }
   100% {
     transform: translate(24px, 0); } }
+/*##### POP-UP #####*/
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 999; }
+
+.emailbold {
+  font-weight: bold; }
+  .emailbold a {
+    color: #9356dc; }
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1; }
+
+.popupcontent {
+  margin: 200px auto;
+  padding: 20px;
+  background: #f6f6f6;
+  border-radius: 5px;
+  width: 35%;
+  position: relative;
+  transition: all 0.5s ease-in-out; }
+  .popupcontent h2 {
+    margin-top: 0;
+    margin-left: 0; }
+  .popupcontent .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333; }
+    .popupcontent .close:hover {
+      color: #99e2d0; }
+  .popupcontent .content {
+    max-height: 30%;
+    overflow: auto; }
+    .popupcontent .content p {
+      margin-bottom: 10px; }
+
+form {
+  display: flex;
+  flex-direction: column; }
+
+.type {
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px; }
+
+input {
+  width: 95%;
+  border-style: none;
+  outline: none;
+  border: black 1px solid;
+  border-radius: 5px; }
+
+textarea {
+  width: 95%;
+  resize: none;
+  border-style: none;
+  outline: none;
+  border: black 1px solid;
+  border-radius: 5px; }
+
+.submit {
+  margin: auto;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-style: none;
+  background: linear-gradient(355deg, #9356dc 29%, #ff79da 100%);
+  height: 25px;
+  width: 20%;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 10px 7px 26px -16px black;
+  transition-duration: 150ms; }
+  .submit:hover {
+    background: linear-gradient(355deg, #9b63df, #ff88de);
+    box-shadow: 10px 7px 26px -10px black; }
+
+::placeholder {
+  font-family: 'roboto'; }
+
 /*#### HEADER ####*/
 .logo {
   display: flex;
@@ -104,7 +204,8 @@ header {
   max-width: 100%;
   max-height: 512px;
   width: 100%;
-  object-fit: cover; }
+  object-fit: cover;
+  position: relative; }
 
 /*#### CARDS ####*/
 @keyframes itemAppear {
@@ -309,5 +410,11 @@ footer {
     width: 80%;
     margin: auto;
     margin-top: -64px; } }
+@media (max-width: 1024px) {
+  .popupcontent {
+    width: 60%; } }
+@media (max-width: 550px) {
+  .popupcontent {
+    width: 85%; } }
 
 /*# sourceMappingURL=stylesmenu.css.map */

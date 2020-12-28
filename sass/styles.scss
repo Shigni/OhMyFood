@@ -520,12 +520,10 @@ footer {
             flex-direction: row;
             width: 80%;
         }
-
         &__cards {
             width: 40%;
         }
     }
-
     .function {
         flex-direction: row;
         justify-content: space-evenly;
@@ -543,7 +541,6 @@ footer {
          width: 30%;
     }
 }
-
 @media (max-width: 1024px){
     .popupcontent{
         width: 60%;

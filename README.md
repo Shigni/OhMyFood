@@ -8,7 +8,7 @@ Html/css/Sass - maquette fournie - Front-end
 
 ## Demo
 
- https://shigni.github.io/LouisServant_3_10122020/
+https://shigni.github.io/OhMyFood/
 
 
 ## Authors
